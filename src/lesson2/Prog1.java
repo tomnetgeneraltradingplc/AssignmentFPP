@@ -4,7 +4,7 @@ public class Prog1 {
 	public static void main(String[] args) {
 		
 	
-	
+	//we add new file and code
 
 	int  x = RandomNumbers .getRandomInt(1,9);
 	System.out.println("The random nubers for x: " + x);
