@@ -12,3 +12,7 @@ public static void main(String[] args) {
 	System.out.println("The sum by rounding is: " + sum2);
 }
 }
+/*Output
+ The sum by casting is: 14
+ The sum by rounding is: 15
+ */

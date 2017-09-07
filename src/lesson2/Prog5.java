@@ -3,99 +3,54 @@ package lesson2;
 
 import java.util.*;
 
-/**
- * This class keeps hold of an instance of Random and guarantees that the same
- * instance will be used over and over (so the cost of re-seeding the random
- * number generator is avoided). Each time the getRandomInt() method is called,
- * the next integer from this Random instance is returned.
- */
-public class Prog5{
 
-	static Random random;
+public class Prog5 {
+	public static void main(String[] args){
 
-	private Prog5() {
-		random = new Random();
-	}
-
-	/**
-	 * Use this method to get a random integer, with a call like this: int myInt
-	 * = RandomNumbers.getRandomInt();
-	 */
-	public static int getRandomInt() {
-		if (random == null)
-			new Prog5();
-		return random.nextInt();
-	}
-
-	/**
-	 * Returns a random integer x satisfying lower <= x <= upper. If lower >
-	 * upper, returns 0.
-	 * 
-	 * @param lower
-	 * @param upper
-	 * @return
-	 */
-	public static int getRandomInt(int lower, int upper) {
-		if (lower > upper)
-			return 0;
-		if (lower == upper)
-			return lower;
-		int difference = upper - lower;
-		int start = getRandomInt();
-
-		// nonneg int in the range 0..difference - 1
-		start = Math.abs(start) % (difference + 1);
-
-		start += lower;
-		return start;
-	}
-
-	public static void main(String[] args) {
-
-		for (int outer = 0; outer < 2; outer++) {
-			for (int i = 0; i < 2; i++) {
-
-				for (int j = 1; j < 5; j++) {
-					int rnd1;
-					rnd1 = Prog5.getRandomInt(1, 99);
-
-					if (rnd1 < 10) {
-						System.out.format("%4d", rnd1);
-
-					} else {
-						System.out.format("%4d", rnd1);
-
-					}
-					System.out.format("%5s", " ");
-				}
-				System.out.println("");
-
-				for (int j = 1; j < 5; j++) {
-					int rnd1;
-					rnd1 = Prog5.getRandomInt(1, 99);
-
-					if (rnd1 < 10) {
-						System.out.format("%s %2d", "+", rnd1);
-
-					} else {
-						System.out.format("%s %d", "+", rnd1);
-
-					}
-					System.out.format("%5s", " ");
-				}
-				System.out.println("");
-				for (int k = 0; i < 4; i++) {
-					System.out.format("____");
-					if (i == 4)
-						break;
-					System.out.format("%5s", " ");
-				}
-
+		//create 4x4 matrix with random number 1..99
+		int[][] rand = new int[4][4];
+		for(int i = 0; i < 4; ++i){
+			for(int j = 0; j<4; ++j){
+				rand[i][j] = RandomNumbers.getRandomInt(1,99); // import from RandomNumber.java
 			}
-			System.out.format("\n");
-			System.out.format("\n");
-			System.out.format("\n");
 		}
+	
+		String output = "";
+		String nineNewlines = "%n%n%n%n%n%n%n%n%n";
+		String equalsBar = "____";
+		//row 1
+		output = String.format("%16d %12d %12d %12d %n %n", 
+				rand[0][0], rand[0][1], rand[0][2], rand[0][3]);
+		
+		output += String.format("%13s %2d %9s %2d %9s %2d %9s %2d %n","+", 
+				rand[1][0], "+", rand[1][1],"+", rand[1][2],"+",rand[1][3]);
+		
+		output += String.format("%16s %12s %12s %12s"+nineNewlines,equalsBar, equalsBar,equalsBar,equalsBar);
+		
+		//row 2
+		output += String.format("%16d %12d %12d %12d %n %n", 
+				rand[2][0], rand[2][1], rand[2][2], rand[2][3]);
+		
+		output += String.format("%13s %2d %9s %2d %9s %2d %9s %2d %n","+", 
+				rand[3][0], "+", rand[3][1],"+", rand[3][2],"+",rand[3][3]);
+		output += String.format("%16s %12s %12s %12s",equalsBar, equalsBar,equalsBar,equalsBar);
+		System.out.println(output);
 	}
-
 }
+/*Output
+  63           18           96           61 
+ 
+            + 51         + 74         + 84         + 67 
+            ____         ____         ____         ____
+
+
+
+
+              61           46           65           26 
+ 
+            + 29         +  1         + 57         + 53 
+            ____         ____         ____         ____
+
+ */
+
+	

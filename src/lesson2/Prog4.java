@@ -7,7 +7,7 @@ public class Prog4 {
 		Scanner scanner = new Scanner(System.in);
 	 
 	
-	       System.out.println("Enter your favourite string:");
+	       System.out.println("Enter your favorite string:");
 	       String input=scanner.nextLine();
 		   System.out.println("The string you entered after reversed is:");
 		
@@ -17,5 +17,11 @@ public class Prog4 {
 			scanner.close();
 	}
 	}
+/*Output
+Enter your favorite string:
+Hello
+The string you entered after reversed is:
+olleH
+ */
 	
 
