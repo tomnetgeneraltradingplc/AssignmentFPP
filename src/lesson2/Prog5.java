@@ -1,9 +1,6 @@
 package lesson2;
 
 
-import java.util.*;
-
-
 public class Prog5 {
 	public static void main(String[] args){
 
